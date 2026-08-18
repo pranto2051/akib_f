@@ -1,29 +1,37 @@
-# Welcome to your Lovable project
+# Hostel Management
 
-This project was built with [Lovable](https://lovable.dev).
+Smart technology solutions for modern businesses — hostel management platforms, enterprise software and custom business systems built in Dhaka since 2019.
 
-## Build with Lovable
+## Tech Stack
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- **Frontend:** React, TypeScript, Tailwind CSS, TanStack Router + Start
+- **Backend:** Supabase (PostgreSQL, Auth, Storage)
+- **Build:** Vite
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Getting Started
 
-## Development
+```bash
+# Install dependencies
+npm install
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+# Start dev server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-## Built with
+## Database Setup
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+Run the SQL in `supabase/full_database.sql` in your Supabase SQL Editor to create all tables, RLS policies, and seed data.
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and fill in your Supabase credentials:
+
+```
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_PUBLISHABLE_KEY=your_publishable_key
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=your_publishable_key
+```

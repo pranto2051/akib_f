@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "jetro": {
+      "type": "stdio",
+      "command": "/Users/md.prantoislam/.jetro/runtime/node-darwin-arm64",
+      "args": [
+        "/Users/md.prantoislam/.jetro/mcp-server/index.js"
+      ],
+      "env": {
+        "JET_WORKSPACE": "/Users/md.prantoislam/Desktop/akib_f",
+        "JET_API_URL": "https://api.jetro.ai",
+        "PATH": "/Users/md.prantoislam/.jetro/runtime:/Users/md.prantoislam/.pyenv/shims:/Users/md.prantoislam/.pyenv/bin:/Users/md.prantoislam/.antigravity-ide/antigravity-ide/bin:/Users/md.prantoislam/.antigravity-ide/antigravity-ide/bin:/Users/md.prantoislam/.mavis/bin:/Users/md.prantoislam/.antigravity-ide/antigravity-ide/bin:/Users/md.prantoislam/.opencode/bin:/Users/md.prantoislam/.antigravity/antigravity/bin:/Users/md.prantoislam/.antigravity/antigravity/bin:/Users/md.prantoislam/.bun/bin:/Users/md.prantoislam/.local/bin:/Users/md.prantoislam/.antigravity/antigravity/bin:/Users/md.prantoislam/.antigravity/antigravity/bin:/Users/md.prantoislam/.antigravity/antigravity/bin:/Users/md.prantoislam/.nvm/versions/node/v22.19.0/bin:/Users/md.prantoislam/miniconda3/bin:/Users/md.prantoislam/miniconda3/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin://Applications/Topaz Gigapixel.app/Contents/Resources/bin://Applications/Topaz Photo AI.app/Contents/Resources/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Users/md.prantoislam/.cargo/bin:/Users/md.prantoislam/Library/Application Support/JetBrains/Toolbox/scripts:/Users/md.prantoislam/.npm-global/bin:/Users/md.prantoislam/mongodb-macos-aarch64--8.2.6/bin"
+      }
+    }
+  }
+}
