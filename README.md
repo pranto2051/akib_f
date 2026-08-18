@@ -2,6 +2,10 @@
 
 Smart technology solutions for modern businesses — hostel management platforms, enterprise software and custom business systems built in Dhaka since 2019.
 
+## Demo
+
+![Hostel Management Demo](demo.png)
+
 ## Tech Stack
 
 - **Frontend:** React, TypeScript, Tailwind CSS, TanStack Router + Start
