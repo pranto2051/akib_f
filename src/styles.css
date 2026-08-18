@@ -1,0 +1,200 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/* Dark is the default (:root). `.light` on <html> opts into the light theme,
+   so `dark:` utilities must match everything that is NOT inside .light. */
+@custom-variant dark (&:where(html:not(.light), html:not(.light) *));
+@custom-variant light (&:where(html.light, html.light *));
+
+
+/*
+ * KeekSurge design system — premium dark-first enterprise.
+ * All colours are semantic tokens in oklch. Never hardcode colours in components.
+ * Runtime overrides from the admin panel are injected as inline custom properties
+ * on <html> by ThemeVars, so every token below is admin-editable.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-display: var(--font-display-family);
+  --font-sans: var(--font-body-family);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --font-display-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Dark-first: :root IS the dark theme */
+  --background: oklch(0.13 0.012 275);
+  --foreground: oklch(0.97 0.005 247);
+  --surface: oklch(0.17 0.014 278);
+  --surface-2: oklch(0.22 0.016 278);
+  --card: oklch(0.17 0.014 278);
+  --card-foreground: oklch(0.97 0.005 247);
+  --popover: oklch(0.19 0.015 278);
+  --popover-foreground: oklch(0.97 0.005 247);
+  --primary: oklch(0.6 0.2 277);
+  --primary-foreground: oklch(0.99 0.002 247);
+  --primary-glow: oklch(0.71 0.14 213);
+  --secondary: oklch(0.22 0.016 278);
+  --secondary-foreground: oklch(0.97 0.005 247);
+  --muted: oklch(0.22 0.016 278);
+  --muted-foreground: oklch(0.71 0.03 256);
+  --accent: oklch(0.71 0.14 213);
+  --accent-foreground: oklch(0.15 0.02 250);
+  --destructive: oklch(0.62 0.23 26);
+  --destructive-foreground: oklch(0.99 0.002 247);
+  --border: oklch(0.3 0.02 278);
+  --input: oklch(0.3 0.02 278);
+  --ring: oklch(0.6 0.2 277);
+
+  --gradient-start: oklch(0.6 0.2 277);
+  --gradient-end: oklch(0.71 0.14 213);
+  --gradient-brand: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  --gradient-subtle: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--primary) 10%, transparent),
+    transparent
+  );
+  --shadow-elegant: 0 24px 60px -24px color-mix(in oklab, var(--primary) 45%, transparent);
+  --shadow-glow: 0 0 60px -12px color-mix(in oklab, var(--primary-glow) 50%, transparent);
+  --shadow-card: 0 1px 0 0 color-mix(in oklab, var(--foreground) 6%, transparent);
+
+  --chart-1: oklch(0.6 0.2 277);
+  --chart-2: oklch(0.71 0.14 213);
+  --chart-3: oklch(0.68 0.17 305);
+  --chart-4: oklch(0.79 0.16 84);
+  --chart-5: oklch(0.7 0.17 22);
+
+  --sidebar: oklch(0.16 0.014 278);
+  --sidebar-foreground: oklch(0.97 0.005 247);
+  --sidebar-primary: oklch(0.6 0.2 277);
+  --sidebar-primary-foreground: oklch(0.99 0.002 247);
+  --sidebar-accent: oklch(0.22 0.016 278);
+  --sidebar-accent-foreground: oklch(0.97 0.005 247);
+  --sidebar-border: oklch(0.28 0.02 278);
+  --sidebar-ring: oklch(0.6 0.2 277);
+}
+
+.light {
+  --background: oklch(0.98 0.002 247);
+  --foreground: oklch(0.21 0.04 265);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.97 0.007 248);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.04 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.04 265);
+  --primary: oklch(0.53 0.23 277);
+  --primary-foreground: oklch(0.99 0.002 247);
+  --primary-glow: oklch(0.62 0.13 213);
+  --secondary: oklch(0.97 0.007 248);
+  --secondary-foreground: oklch(0.21 0.04 265);
+  --muted: oklch(0.97 0.007 248);
+  --muted-foreground: oklch(0.55 0.035 257);
+  --accent: oklch(0.62 0.13 213);
+  --accent-foreground: oklch(0.99 0.002 247);
+  --border: oklch(0.92 0.013 256);
+  --input: oklch(0.92 0.013 256);
+  --ring: oklch(0.53 0.23 277);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.21 0.04 265);
+  --sidebar-accent: oklch(0.97 0.007 248);
+  --sidebar-accent-foreground: oklch(0.21 0.04 265);
+  --sidebar-border: oklch(0.92 0.013 256);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body-family);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display-family);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility text-gradient {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass-card {
+  background-color: color-mix(in oklab, var(--surface) 70%, transparent);
+  backdrop-filter: blur(24px);
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+}
+
+@utility grid-pattern {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
