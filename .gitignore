@@ -38,6 +38,18 @@ dist-ssr
 supabase/.temp/
 supabase/.branches/
 
+# AI tool / local tooling files
+.claude/
+.cursor/
+.agents/
+.jetro/
+.github/
+.mcp.json
+AGENT.md
+AGENTS.md
+CLAUDE.md
+.windsurfrules
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
