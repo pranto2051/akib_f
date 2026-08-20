@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, Moon, ShieldCheck, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { supabase } from "../../integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import type { SiteSettings } from "@/types";
 

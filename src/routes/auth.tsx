@@ -3,7 +3,7 @@ import { Loader2, LogIn, ShieldCheck } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { GradientText, GridPattern } from "@/components/shared/primitives";
-import { supabase } from "../integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 
 const DEMO_EMAIL = "admin@hostelmanagement.demo";
 const DEMO_PASSWORD = "DemoAdmin#2026";
