@@ -19,7 +19,7 @@ export const getProductCategories = createServerFn({ method: "GET" }).handler(as
 });
 
 export const getProductDetail = createServerFn({ method: "GET" })
-  .inputValidator((input: unknown) => z.object({ slug: z.string().min(1).max(200) }).parse(input))
+  .validator((input: unknown) => z.object({ slug: z.string().min(1).max(200) }).parse(input))
   .handler(async ({ data: input }) => {
     const supabase = await client();
     const { data: product, error } = await supabase
@@ -80,7 +80,7 @@ const requestSchema = z.object({
 });
 
 export const submitProductRequest = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) => requestSchema.parse(input))
+  .validator((input: unknown) => requestSchema.parse(input))
   .handler(async ({ data }) => {
     const supabase = await client();
     const { error } = await supabase.from("product_requests").insert({

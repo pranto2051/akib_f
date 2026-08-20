@@ -65,7 +65,7 @@ export const getMyRoles = createServerFn({ method: "GET" })
 
 export const adminList = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: unknown) => listSchema.parse(input))
+  .validator((input: unknown) => listSchema.parse(input))
   .handler(async ({ data, context }) => {
     let query = context.supabase.from(data.table).select("*");
     if (data.orderBy) query = query.order(data.orderBy, { ascending: data.ascending ?? true });
@@ -76,7 +76,7 @@ export const adminList = createServerFn({ method: "POST" })
 
 export const adminUpsert = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: unknown) => upsertSchema.parse(input))
+  .validator((input: unknown) => upsertSchema.parse(input))
   .handler(async ({ data, context }) => {
     const { data: row, error } = await context.supabase
       .from(data.table)
@@ -89,7 +89,7 @@ export const adminUpsert = createServerFn({ method: "POST" })
 
 export const adminDelete = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: unknown) => deleteSchema.parse(input))
+  .validator((input: unknown) => deleteSchema.parse(input))
   .handler(async ({ data, context }) => {
     const { error } = await context.supabase.from(data.table).delete().eq("id", data.id);
     if (error) throw new Error(error.message);
@@ -119,7 +119,7 @@ export const adminStats = createServerFn({ method: "GET" })
 /** Records an audit-log entry. Used after every key admin mutation. */
 export const logActivity = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: unknown) =>
+  .validator((input: unknown) =>
     z
       .object({
         action: z.string().min(1).max(80),

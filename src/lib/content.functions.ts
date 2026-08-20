@@ -40,7 +40,7 @@ export const getServices = createServerFn({ method: "GET" }).handler(async () =>
 });
 
 export const getService = createServerFn({ method: "GET" })
-  .inputValidator(slugInput)
+  .validator(slugInput)
   .handler(async ({ data: input }) => {
     const supabase = await client();
     const { data, error } = await supabase
@@ -65,7 +65,7 @@ export const getProducts = createServerFn({ method: "GET" }).handler(async () =>
 });
 
 export const getProduct = createServerFn({ method: "GET" })
-  .inputValidator(slugInput)
+  .validator(slugInput)
   .handler(async ({ data: input }) => {
     const supabase = await client();
     const { data, error } = await supabase
@@ -90,7 +90,7 @@ export const getProjects = createServerFn({ method: "GET" }).handler(async () =>
 });
 
 export const getProject = createServerFn({ method: "GET" })
-  .inputValidator(slugInput)
+  .validator(slugInput)
   .handler(async ({ data: input }) => {
     const supabase = await client();
     const { data, error } = await supabase
@@ -122,7 +122,7 @@ export const getBlogPosts = createServerFn({ method: "GET" }).handler(async () =
 });
 
 export const getBlogPost = createServerFn({ method: "GET" })
-  .inputValidator(slugInput)
+  .validator(slugInput)
   .handler(async ({ data: input }) => {
     const supabase = await client();
     const { data, error } = await supabase
@@ -180,7 +180,7 @@ export const getCareers = createServerFn({ method: "GET" }).handler(async () => 
 });
 
 export const getCareer = createServerFn({ method: "GET" })
-  .inputValidator(slugInput)
+  .validator(slugInput)
   .handler(async ({ data: input }) => {
     const supabase = await client();
     const { data, error } = await supabase
@@ -204,7 +204,7 @@ const contactSchema = z.object({
 });
 
 export const submitContactMessage = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) => contactSchema.parse(input))
+  .validator((input: unknown) => contactSchema.parse(input))
   .handler(async ({ data }) => {
     const supabase = await client();
     const { error } = await supabase.from("contact_messages").insert({
@@ -230,7 +230,7 @@ const applicationSchema = z.object({
 });
 
 export const submitApplication = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) => applicationSchema.parse(input))
+  .validator((input: unknown) => applicationSchema.parse(input))
   .handler(async ({ data }) => {
     const supabase = await client();
     const { error } = await supabase.from("applications").insert({
@@ -246,7 +246,7 @@ export const submitApplication = createServerFn({ method: "POST" })
   });
 
 export const subscribeNewsletter = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) =>
+  .validator((input: unknown) =>
     z.object({ email: z.string().trim().email().max(255) }).parse(input),
   )
   .handler(async ({ data }) => {
